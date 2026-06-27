@@ -6,6 +6,17 @@
     <title>Edouard Miambi | Accompagnement aux études supérieures en France</title>
     <meta name="description" content="Accompagnement personnalisé pour les familles d'Afrique francophone : préparation des candidatures aux études supérieures en France via Parcoursup et Campus France, par un ancien Maître de Conférences.">
 
+    <!-- Favicon (intégré, sans fichier séparé) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231a365d'/><text x='50' y='69' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='%23c9a227' text-anchor='middle'>EM</text></svg>">
+
+    <!-- Partage sur les réseaux et messageries (WhatsApp, Facebook, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Edouard Miambi — Études supérieures en France">
+    <meta property="og:description" content="Accompagnement personnalisé pour les familles d'Afrique francophone : Parcoursup et Campus France, par un ancien Maître de Conférences.">
+    <meta property="og:image" content="https://miambi.fr/miambi-portrait.jpg">
+    <meta property="og:url" content="https://miambi.fr/">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -817,6 +828,17 @@
 
     .form-group { margin-bottom: var(--space-lg); }
 
+    /* Kompakte zweispaltige Anordnung der Formularfelder */
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md) var(--space-lg);
+        margin-bottom: var(--space-lg);
+    }
+
+    .form-grid .form-group { margin-bottom: 0; }
+    .form-grid .form-group.full { grid-column: 1 / -1; }
+
     .form-group label {
         display: block;
         font-size: 0.85rem;
@@ -972,6 +994,10 @@
         .methode-list { grid-template-columns: 1fr; }
     }
 
+    @media (max-width: 600px) {
+        .form-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 480px) {
         .container { padding: 0 var(--space-md); }
         .section-header { margin-bottom: var(--space-2xl); }
@@ -1023,10 +1049,6 @@
                 <a href="#contact" class="btn btn-primary">Prendre rendez-vous (gratuit)</a>
                 <a href="#accompagnement" class="btn btn-secondary">Découvrir l'accompagnement</a>
             </div>
-        </div>
-        <div class="hero-scroll">
-            <span>Défiler</span>
-            <div class="scroll-line"></div>
         </div>
     </header>
 
@@ -1081,7 +1103,6 @@
                     <div class="image-frame">
                         <img src="miambi-portrait.jpg" alt="Edouard Miambi, ancien Maître de Conférences à l'Université Paris-Est Créteil" class="about-photo">
                     </div>
-                    <div class="about-decoration"></div>
                 </div>
 
                 <div class="about-content">
@@ -1140,7 +1161,6 @@
                         <p>Une analyse approfondie du profil de votre enfant, de ses objectifs et des filières qui lui correspondent réellement. À l'issue du bilan, vous disposez d'une feuille de route claire : quelles formations cibler, dans quel ordre de priorité, avec quelles chances réalistes.</p>
                         <p>Cette étape évite des erreurs coûteuses, comme viser des établissements hors de portée ou s'engager dans une filière peu adaptée.</p>
                     </div>
-                    <a href="#contact" class="btn btn-primary btn-full">Prendre rendez-vous</a>
                 </article>
 
                 <!-- Campus France -->
@@ -1154,7 +1174,6 @@
                         <p>Constitution et optimisation du dossier sur la plateforme « Études en France », choix des formations et des établissements, rédaction des « projets motivés » (lettres de motivation exigées par Campus France pour chaque candidature), préparation intensive à l'entretien Campus France : simulation d'entretien, questions types, posture, argumentation.</p>
                         <p class="formule-highlight">Je vous prépare aux questions précises que posent les agents, et je relis chaque pièce de votre dossier comme le ferait un jury.</p>
                     </div>
-                    <a href="#contact" class="btn btn-primary btn-full">Prendre rendez-vous</a>
                 </article>
 
                 <!-- Parcoursup -->
@@ -1168,7 +1187,6 @@
                         <p>Sélection des vœux et analyse des taux d'acceptation par formation. Rédaction guidée, pas à pas, des « projets de formation motivés » attendus par Parcoursup pour chaque vœu : structure, arguments différenciants, contenu adapté à chaque formation. Suivi tout au long de la procédure.</p>
                         <p class="formule-highlight">Je lis comme un jury, et je vous aide à écrire pour le convaincre.</p>
                     </div>
-                    <a href="#contact" class="btn btn-primary btn-full">Prendre rendez-vous</a>
                 </article>
             </div>
 
@@ -1322,52 +1340,54 @@
                 <form class="contact-form" id="contact-form" action="https://formspree.io/f/xojodoep" method="POST">
                     <div class="form-status" id="form-status"></div>
 
-                    <div class="form-group">
-                        <label for="nom">Nom et prénom *</label>
-                        <input type="text" id="nom" name="nom" required>
-                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nom">Nom et prénom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">Courriel *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Courriel *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="pays">Pays de résidence *</label>
-                        <input type="text" id="pays" name="pays" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="pays">Pays de résidence *</label>
+                            <input type="text" id="pays" name="pays" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="niveau">Niveau d'études actuel de votre enfant <span class="optional">(facultatif)</span></label>
-                        <select id="niveau" name="niveau">
-                            <option value="">Sélectionnez…</option>
-                            <option value="Seconde">Seconde</option>
-                            <option value="Première">Première</option>
-                            <option value="Terminale">Terminale</option>
-                            <option value="Baccalauréat obtenu">Baccalauréat obtenu</option>
-                            <option value="Études supérieures en cours">Études supérieures en cours</option>
-                            <option value="Autre">Autre</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="niveau">Niveau d'études de l'enfant <span class="optional">(facultatif)</span></label>
+                            <select id="niveau" name="niveau">
+                                <option value="">Sélectionnez…</option>
+                                <option value="Seconde">Seconde</option>
+                                <option value="Première">Première</option>
+                                <option value="Terminale">Terminale</option>
+                                <option value="Baccalauréat obtenu">Baccalauréat obtenu</option>
+                                <option value="Études supérieures en cours">Études supérieures en cours</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="etablissement">Établissement fréquenté <span class="optional">(facultatif)</span></label>
-                        <input type="text" id="etablissement" name="etablissement">
-                    </div>
+                        <div class="form-group">
+                            <label for="etablissement">Établissement fréquenté <span class="optional">(facultatif)</span></label>
+                            <input type="text" id="etablissement" name="etablissement">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="procedure">Procédure envisagée <span class="optional">(facultatif)</span></label>
-                        <select id="procedure" name="procedure">
-                            <option value="">Sélectionnez…</option>
-                            <option value="Parcoursup">Parcoursup</option>
-                            <option value="Campus France">Campus France</option>
-                            <option value="Je ne sais pas encore">Je ne sais pas encore</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="procedure">Procédure envisagée <span class="optional">(facultatif)</span></label>
+                            <select id="procedure" name="procedure">
+                                <option value="">Sélectionnez…</option>
+                                <option value="Parcoursup">Parcoursup</option>
+                                <option value="Campus France">Campus France</option>
+                                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="message">Votre message *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <div class="form-group full">
+                            <label for="message">Votre message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
                     </div>
 
                     <!-- Honeypot anti-spam : ne pas remplir -->
