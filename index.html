@@ -3,106 +3,1484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>miambi.fr</title>
-    <meta name="description" content="Bientôt en ligne">
+    <title>Edouard Miambi | Accompagnement aux études supérieures en France</title>
+    <meta name="description" content="Accompagnement personnalisé pour les familles d'Afrique francophone : préparation des candidatures aux études supérieures en France via Parcoursup et Campus France, par un ancien Maître de Conférences.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --color-primary: #1a365d;
-            --color-primary-light: #2c5282;
-            --color-primary-dark: #0f2744;
-            --color-accent: #c9a227;
-            --color-text-light: rgba(255, 255, 255, 0.85);
-            --color-text-muted: rgba(255, 255, 255, 0.55);
+    /* ========================================
+       Edouard Miambi — Études supérieures en France
+       Palette Navy & Or (reprise du style fourni)
+       ======================================== */
+
+    :root {
+        --color-primary: #1a365d;
+        --color-primary-light: #2c5282;
+        --color-primary-dark: #0f2744;
+        --color-accent: #c9a227;
+        --color-accent-light: #d4b44a;
+        --color-accent-dark: #a88b1f;
+
+        --color-text: #2d3748;
+        --color-text-light: #4a5568;
+        --color-text-muted: #718096;
+
+        --color-bg: #ffffff;
+        --color-bg-alt: #f7fafc;
+        --color-bg-dark: #edf2f7;
+
+        --color-border: #e2e8f0;
+
+        --font-heading: 'Cormorant Garamond', Georgia, serif;
+        --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+        --space-4xl: 6rem;
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 16px;
+
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+        --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+        --transition-fast: 0.15s ease;
+        --transition-base: 0.3s ease;
+        --transition-slow: 0.5s ease;
+    }
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+    }
+
+    body {
+        font-family: var(--font-body);
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; transition: color var(--transition-fast); }
+    ul, ol { list-style: none; }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--color-primary-dark);
+    }
+
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+    h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+    h4 { font-size: 1.125rem; }
+
+    p { margin-bottom: var(--space-md); }
+
+    .container {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-md) var(--space-xl);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border: 2px solid transparent;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: all var(--transition-base);
+    }
+
+    .btn svg { width: 18px; height: 18px; }
+
+    .btn-primary {
+        background: var(--color-accent);
+        color: var(--color-primary-dark);
+        border-color: var(--color-accent);
+    }
+
+    .btn-primary:hover {
+        background: var(--color-accent-dark);
+        border-color: var(--color-accent-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--color-bg);
+        border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-secondary:hover {
+        background: var(--color-bg);
+        color: var(--color-primary-dark);
+        border-color: var(--color-bg);
+    }
+
+    .btn-full { width: 100%; justify-content: center; }
+
+    /* Section headers */
+    .section-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto var(--space-3xl);
+    }
+
+    .section-tag {
+        display: inline-block;
+        padding: var(--space-xs) var(--space-md);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--color-accent-dark);
+        background: rgba(201, 162, 39, 0.12);
+        border-radius: var(--radius-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .section-title { margin-bottom: var(--space-md); }
+
+    .section-subtitle {
+        color: var(--color-text-light);
+        font-size: 1.1rem;
+    }
+
+    /* ========================================
+       Navigation
+       ======================================== */
+    .navbar {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+        padding: var(--space-lg) 0;
+        transition: all var(--transition-base);
+    }
+
+    .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: var(--shadow-sm);
+        padding: var(--space-md) 0;
+    }
+
+    .navbar.scrolled .nav-link { color: var(--color-text); }
+    .navbar.scrolled .nav-logo .logo-text { color: var(--color-primary-dark); }
+    .navbar.scrolled .nav-toggle span { background: var(--color-primary-dark); }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: var(--space-md); }
+
+    .logo-initials {
+        width: 46px; height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--color-primary-dark);
+        background: var(--color-accent);
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .logo-text {
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--color-bg);
+        transition: color var(--transition-base);
+    }
+
+    .nav-menu { display: flex; align-items: center; gap: var(--space-xl); }
+
+    .nav-link {
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        transition: color var(--transition-fast);
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px; left: 0;
+        width: 0; height: 2px;
+        background: var(--color-accent);
+        transition: width var(--transition-base);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+    .nav-cta {
+        padding: var(--space-sm) var(--space-lg);
+        background: var(--color-accent);
+        color: var(--color-primary-dark) !important;
+        border-radius: var(--radius-sm);
+    }
+
+    .nav-cta::after { display: none; }
+    .nav-cta:hover { background: var(--color-accent-light); }
+
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: var(--space-sm);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        width: 24px; height: 2px;
+        background: var(--color-bg);
+        transition: all var(--transition-base);
+    }
+
+    /* ========================================
+       Hero
+       ======================================== */
+    .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, transparent 0%, rgba(15, 39, 68, 0.4) 100%);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: var(--space-xl);
+        max-width: 880px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: var(--space-lg);
+    }
+
+    .hero-title {
+        color: var(--color-bg);
+        margin-bottom: var(--space-xl);
+        line-height: 1.1;
+    }
+
+    .hero-title span { color: var(--color-accent); font-style: italic; }
+
+    .hero-description {
+        font-size: 1.12rem;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: var(--space-2xl);
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: var(--space-lg);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+        position: absolute;
+        bottom: var(--space-2xl);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .scroll-line {
+        width: 1px; height: 40px;
+        background: linear-gradient(to bottom, var(--color-accent), transparent);
+        animation: scroll-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-pulse {
+        0%, 100% { opacity: 1; transform: scaleY(1); }
+        50% { opacity: 0.5; transform: scaleY(0.8); }
+    }
+
+    /* ========================================
+       Difficultés (Le constat)
+       ======================================== */
+    .difficultes {
+        padding: var(--space-4xl) 0;
+        background: var(--color-bg);
+    }
+
+    .difficultes-intro {
+        max-width: 820px;
+        margin: 0 auto var(--space-2xl);
+        text-align: center;
+        color: var(--color-text-light);
+        font-size: 1.08rem;
+    }
+
+    .difficultes-list {
+        max-width: 820px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .difficulte-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-lg);
+        padding: var(--space-lg) var(--space-xl);
+        background: var(--color-bg-alt);
+        border-left: 3px solid var(--color-accent);
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-base);
+    }
+
+    .difficulte-item:hover {
+        transform: translateX(4px);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .difficulte-number {
+        font-family: var(--font-heading);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--color-accent);
+        line-height: 1.2;
+        flex-shrink: 0;
+        min-width: 32px;
+    }
+
+    .difficulte-text {
+        color: var(--color-text);
+        font-size: 0.98rem;
+        padding-top: 4px;
+    }
+
+    .difficultes-closing {
+        max-width: 820px;
+        margin: var(--space-2xl) auto 0;
+        text-align: center;
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 500;
+        color: var(--color-primary);
+    }
+
+    /* ========================================
+       Qui suis-je (About)
+       ======================================== */
+    .about {
+        padding: var(--space-4xl) 0;
+        background: var(--color-bg-alt);
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: var(--space-3xl);
+        align-items: center;
+    }
+
+    .about-image { position: relative; }
+
+    .image-frame {
+        position: relative;
+        z-index: 1;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .about-photo {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        aspect-ratio: 3/4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    }
+
+    .image-placeholder .initials {
+        font-family: var(--font-heading);
+        font-size: 6rem;
+        font-weight: 700;
+        color: var(--color-accent);
+        opacity: 0.9;
+    }
+
+    .about-decoration {
+        position: absolute;
+        top: -18px; right: -18px;
+        width: 100%; height: 100%;
+        border: 3px solid var(--color-accent);
+        border-radius: var(--radius-lg);
+        z-index: 0;
+    }
+
+    .about-role {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--color-accent-dark);
+        margin-bottom: var(--space-xl);
+    }
+
+    .about-text p {
+        color: var(--color-text-light);
+        margin-bottom: var(--space-lg);
+    }
+
+    .about-conviction {
+        margin-top: var(--space-lg);
+        padding: var(--space-lg) var(--space-xl);
+        background: var(--color-bg);
+        border-left: 3px solid var(--color-accent);
+        border-radius: var(--radius-sm);
+        font-style: italic;
+        color: var(--color-text);
+    }
+
+    .about-conviction strong { color: var(--color-primary-dark); font-style: normal; }
+
+    /* ========================================
+       Mon accompagnement (Formules / Tarifs)
+       ======================================== */
+    .formules {
+        padding: var(--space-4xl) 0;
+        background: var(--color-bg);
+    }
+
+    .formules-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        align-items: stretch;
+    }
+
+    .formule-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-2xl);
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        transition: all var(--transition-base);
+    }
+
+    .formule-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--color-accent);
+    }
+
+    .formule-name {
+        font-size: 1.3rem;
+        margin-bottom: var(--space-xs);
+    }
+
+    .formule-tagline {
+        font-style: italic;
+        color: var(--color-text-muted);
+        font-size: 0.92rem;
+        margin-bottom: var(--space-lg);
+        min-height: 2.4em;
+    }
+
+    .formule-price {
+        font-family: var(--font-heading);
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--color-accent-dark);
+        line-height: 1;
+        margin-bottom: var(--space-xs);
+    }
+
+    .formule-price-fcfa {
+        font-size: 0.92rem;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-lg);
+    }
+
+    .formule-divider {
+        height: 1px;
+        background: var(--color-border);
+        margin-bottom: var(--space-lg);
+    }
+
+    .formule-desc {
+        color: var(--color-text-light);
+        font-size: 0.92rem;
+        margin-bottom: var(--space-lg);
+        flex-grow: 1;
+    }
+
+    .formule-desc p { margin-bottom: var(--space-md); }
+    .formule-desc p:last-child { margin-bottom: 0; }
+
+    .formule-highlight {
+        font-style: italic;
+        color: var(--color-primary);
+    }
+
+    .formule-card .btn { margin-top: auto; }
+
+    .formules-note {
+        max-width: 820px;
+        margin: var(--space-2xl) auto 0;
+        text-align: center;
+        font-size: 0.92rem;
+        color: var(--color-text-muted);
+        font-style: italic;
+    }
+
+    /* ========================================
+       Déroulement (Méthode)
+       ======================================== */
+    .methode {
+        padding: var(--space-4xl) 0;
+        background: var(--color-bg-alt);
+    }
+
+    .methode-intro {
+        max-width: 820px;
+        margin: 0 auto var(--space-2xl);
+    }
+
+    .methode-intro p {
+        color: var(--color-text-light);
+        margin-bottom: var(--space-lg);
+        text-align: center;
+    }
+
+    .methode-list {
+        max-width: 820px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+
+    .methode-item {
+        padding: var(--space-lg) var(--space-xl);
+        background: var(--color-bg);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .methode-item h4 {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        color: var(--color-primary-dark);
+        margin-bottom: var(--space-sm);
+        font-size: 1.05rem;
+    }
+
+    .methode-item h4::before {
+        content: '';
+        width: 8px; height: 8px;
+        background: var(--color-accent);
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .methode-item p {
+        font-size: 0.92rem;
+        color: var(--color-text-light);
+        margin-bottom: 0;
+    }
+
+    /* ========================================
+       FAQ
+       ======================================== */
+    .faq {
+        padding: var(--space-4xl) 0;
+        background: var(--color-bg);
+    }
+
+    .faq-list {
+        max-width: 820px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .faq-item {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        transition: all var(--transition-base);
+    }
+
+    .faq-item[open] {
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .faq-item summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-md);
+        padding: var(--space-lg) var(--space-xl);
+        font-family: var(--font-heading);
+        font-size: 1.18rem;
+        font-weight: 600;
+        color: var(--color-primary-dark);
+        cursor: pointer;
+        list-style: none;
+        transition: background var(--transition-fast);
+    }
+
+    .faq-item summary:hover { background: var(--color-bg-alt); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-icon {
+        flex-shrink: 0;
+        width: 22px; height: 22px;
+        position: relative;
+        transition: transform var(--transition-base);
+    }
+
+    .faq-icon::before, .faq-icon::after {
+        content: '';
+        position: absolute;
+        background: var(--color-accent);
+        border-radius: 2px;
+    }
+
+    .faq-icon::before {
+        top: 50%; left: 0;
+        width: 100%; height: 2px;
+        transform: translateY(-50%);
+    }
+
+    .faq-icon::after {
+        left: 50%; top: 0;
+        width: 2px; height: 100%;
+        transform: translateX(-50%);
+        transition: opacity var(--transition-base);
+    }
+
+    .faq-item[open] .faq-icon::after { opacity: 0; }
+
+    .faq-answer {
+        padding: 0 var(--space-xl) var(--space-lg);
+        color: var(--color-text-light);
+        font-size: 0.96rem;
+    }
+
+    .faq-answer p { margin-bottom: 0; }
+
+    /* ========================================
+       Contact
+       ======================================== */
+    .contact {
+        padding: var(--space-4xl) 0;
+        background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    }
+
+    .contact .section-tag {
+        color: var(--color-bg);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact .section-title { color: var(--color-bg); }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: var(--space-3xl);
+        align-items: start;
+    }
+
+    .contact-info p {
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: var(--space-lg);
+    }
+
+    .contact-info .section-tag { margin-top: 0; }
+
+    .contact-points {
+        margin-top: var(--space-xl);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .contact-point {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-md);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95rem;
+    }
+
+    .contact-point svg {
+        width: 22px; height: 22px;
+        color: var(--color-accent);
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .contact-form {
+        padding: var(--space-2xl);
+        background: var(--color-bg);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .form-group { margin-bottom: var(--space-lg); }
+
+    .form-group label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--color-text);
+        margin-bottom: var(--space-sm);
+    }
+
+    .form-group .optional {
+        color: var(--color-text-muted);
+        font-weight: 400;
+        text-transform: none;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: var(--space-md);
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: var(--color-text);
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-fast);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.12);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    /* Honeypot anti-spam : caché aux humains */
+    .form-hp {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .form-status {
+        display: none;
+        padding: var(--space-md);
+        border-radius: var(--radius-sm);
+        font-size: 0.92rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .form-status.success {
+        display: block;
+        background: rgba(34, 139, 58, 0.1);
+        color: #1e7a3a;
+        border: 1px solid rgba(34, 139, 58, 0.3);
+    }
+
+    .form-status.error {
+        display: block;
+        background: rgba(180, 40, 40, 0.08);
+        color: #a13030;
+        border: 1px solid rgba(180, 40, 40, 0.3);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .footer {
+        padding: var(--space-3xl) 0 var(--space-xl);
+        background: var(--color-primary-dark);
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--space-xl);
+        padding-bottom: var(--space-2xl);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: var(--space-xl);
+    }
+
+    .footer-brand { display: flex; align-items: center; gap: var(--space-lg); }
+
+    .footer-brand .logo-initials { width: 54px; height: 54px; font-size: 1.4rem; }
+
+    .footer-brand p { font-size: 0.9rem; line-height: 1.5; margin: 0; }
+
+    .footer-nav { display: flex; flex-wrap: wrap; gap: var(--space-xl); }
+
+    .footer-nav a {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.7);
+        transition: color var(--transition-fast);
+    }
+
+    .footer-nav a:hover { color: var(--color-accent); }
+
+    .footer-bottom { text-align: center; }
+
+    .footer-bottom p {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin: 0;
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 980px) {
+        .about-grid { grid-template-columns: 1fr; }
+        .about-image { max-width: 320px; margin: 0 auto; }
+        .formules-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+        .formule-tagline { min-height: 0; }
+        .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+        html { font-size: 15px; }
+
+        .nav-menu {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--color-primary-dark);
+            gap: var(--space-lg);
+            transition: right var(--transition-base);
+            box-shadow: var(--shadow-xl);
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        .nav-menu.active { right: 0; }
+        .nav-menu .nav-link { color: var(--color-bg); font-size: 1rem; }
+        .nav-toggle { display: flex; z-index: 1001; }
 
-        html, body {
-            height: 100%;
-        }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-weight: 400;
-            color: var(--color-text-light);
-            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            overflow: hidden;
-            position: relative;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        .hero-buttons { flex-direction: column; align-items: center; }
+        .hero-scroll { display: none; }
+        .methode-list { grid-template-columns: 1fr; }
+    }
 
-        /* Subtle pattern overlay */
-        body::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-        }
+    @media (max-width: 480px) {
+        .container { padding: 0 var(--space-md); }
+        .section-header { margin-bottom: var(--space-2xl); }
+        .formule-card { padding: var(--space-lg); }
+        .contact-form { padding: var(--space-lg); }
+        .difficulte-item { padding: var(--space-md) var(--space-lg); }
+    }
 
-        /* Radial vignette */
-        body::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, transparent 0%, rgba(15, 39, 68, 0.4) 100%);
-            pointer-events: none;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 600px;
-        }
-
-        .domain {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--color-accent);
-            margin-bottom: 4rem;
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(2.75rem, 7vw, 4.5rem);
-            font-weight: 400;
-            font-style: italic;
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-            color: #ffffff;
-            margin-bottom: 2.5rem;
-        }
-
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--color-accent), transparent);
-            margin: 0 auto;
-        }
+    /* Accessibilité : mouvement réduit */
+    @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
     </style>
 </head>
 <body>
-    <main class="container">
-        <p class="domain">miambi.fr</p>
-        <h1>Bientôt en ligne</h1>
-        <div class="divider" aria-hidden="true"></div>
-    </main>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#accueil" class="nav-logo">
+                <span class="logo-initials">EM</span>
+                <span class="logo-text">Edouard Miambi</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#apropos" class="nav-link">Qui suis-je</a></li>
+                <li><a href="#accompagnement" class="nav-link">Accompagnement</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="accueil">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Études supérieures en France</p>
+            <h1 class="hero-title">Votre dossier, votre avenir,<br><span>notre expertise</span></h1>
+            <p class="hero-description">
+                Un accompagnement personnalisé pour les familles d'Afrique francophone afin de
+                maximiser le taux d'acceptation des candidatures de leurs enfants par les universités
+                et autres établissements d'enseignement supérieur via Parcoursup et Campus France.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Prendre rendez-vous (gratuit)</a>
+                <a href="#accompagnement" class="btn btn-secondary">Découvrir l'accompagnement</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Défiler</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- Difficultés -->
+    <section class="difficultes">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Le constat</span>
+                <h2 class="section-title">Pourquoi tant de bons dossiers sont-ils refusés ?</h2>
+            </div>
+
+            <p class="difficultes-intro">
+                Préparer la candidature de votre enfant pour des études en France depuis l'Afrique est
+                une démarche exigeante. Un bon dossier scolaire est nécessaire, mais rarement suffisant :
+                il faut aussi connaître les codes du système français. Beaucoup d'excellents élèves voient
+                ainsi leur dossier refusé non par manque de niveau, mais parce que ces codes leur restent
+                étrangers.
+            </p>
+
+            <div class="difficultes-list">
+                <div class="difficulte-item">
+                    <span class="difficulte-number">1</span>
+                    <span class="difficulte-text">Des procédures d'admission complexes et en constante évolution (Parcoursup, Campus France).</span>
+                </div>
+                <div class="difficulte-item">
+                    <span class="difficulte-number">2</span>
+                    <span class="difficulte-text">Une méconnaissance des filières françaises et des critères réels d'admission.</span>
+                </div>
+                <div class="difficulte-item">
+                    <span class="difficulte-number">3</span>
+                    <span class="difficulte-text">Le manque d'informations fiables pour orienter le choix de formation.</span>
+                </div>
+                <div class="difficulte-item">
+                    <span class="difficulte-number">4</span>
+                    <span class="difficulte-text">L'absence d'un interlocuteur de confiance, qui connaît le système de l'intérieur.</span>
+                </div>
+                <div class="difficulte-item">
+                    <span class="difficulte-number">5</span>
+                    <span class="difficulte-text">Des lettres de motivation qui ne répondent pas aux attentes des jurys français.</span>
+                </div>
+            </div>
+
+            <p class="difficultes-closing">Face à ces difficultés, un bon accompagnement fait souvent toute la différence.</p>
+        </div>
+    </section>
+
+    <!-- Qui suis-je -->
+    <section class="about" id="apropos">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="miambi-portrait.jpg" alt="Edouard Miambi, ancien Maître de Conférences à l'Université Paris-Est Créteil" class="about-photo">
+                    </div>
+                    <div class="about-decoration"></div>
+                </div>
+
+                <div class="about-content">
+                    <span class="section-tag">Qui suis-je</span>
+                    <h2 class="section-title">Edouard Miambi</h2>
+                    <p class="about-role">Enseignant-chercheur (Maître de Conférences) — Université Paris-Est Créteil (UPEC)</p>
+
+                    <div class="about-text">
+                        <p>
+                            Je suis Edouard Miambi, enseignant-chercheur (Maître de Conférences) à l'Université
+                            Paris-Est Créteil (UPEC), aujourd'hui admis à la retraite. Pendant plus de vingt-cinq ans,
+                            j'ai enseigné, encadré des étudiants de différents niveaux (licence, master et doctorat),
+                            et siégé dans des commissions d'admission. J'ai lu plus d'une centaine de dossiers et de
+                            lettres de motivation, les bonnes comme les médiocres.
+                        </p>
+                        <p>
+                            Originaire du Congo-Brazzaville, j'ai fait ma carrière universitaire en France. Je connais
+                            le système français de l'intérieur ainsi que les difficultés que rencontrent les parents
+                            qui souhaitent y inscrire leurs enfants depuis l'étranger.
+                        </p>
+                        <p>
+                            Au cours des dernières années, j'ai accompagné de nombreux enfants d'amis dans leur démarche
+                            d'inscription dans l'enseignement supérieur français. La plupart poursuivent aujourd'hui
+                            leurs études en France.
+                        </p>
+                    </div>
+
+                    <div class="about-conviction">
+                        Désormais, je mets cette expérience au service des familles qui m'en font la demande.
+                        <strong>Ma conviction :</strong> avec un accompagnement adapté, beaucoup de candidats peuvent
+                        réussir là où ils auraient autrement échoué.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mon accompagnement -->
+    <section class="formules" id="accompagnement">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Mon accompagnement</span>
+                <h2 class="section-title">Trois formules d'accompagnement</h2>
+                <p class="section-subtitle">Adaptées à l'étape du parcours dans laquelle se trouve votre enfant.</p>
+            </div>
+
+            <div class="formules-grid">
+                <!-- Bilan -->
+                <article class="formule-card">
+                    <h3 class="formule-name">Bilan d'orientation</h3>
+                    <p class="formule-tagline">Pour faire le point avant de s'engager.</p>
+                    <div class="formule-price">75 €</div>
+                    <div class="formule-price-fcfa">50 000 FCFA</div>
+                    <div class="formule-divider"></div>
+                    <div class="formule-desc">
+                        <p>Une analyse approfondie du profil de votre enfant, de ses objectifs et des filières qui lui correspondent réellement. À l'issue du bilan, vous disposez d'une feuille de route claire : quelles formations cibler, dans quel ordre de priorité, avec quelles chances réalistes.</p>
+                        <p>Cette étape évite des erreurs coûteuses, comme viser des établissements hors de portée ou s'engager dans une filière peu adaptée.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary btn-full">Prendre rendez-vous</a>
+                </article>
+
+                <!-- Campus France -->
+                <article class="formule-card">
+                    <h3 class="formule-name">Accompagnement Campus France</h3>
+                    <p class="formule-tagline">Pour candidater via la procédure « Études en France ».</p>
+                    <div class="formule-price">180 €</div>
+                    <div class="formule-price-fcfa">120 000 FCFA</div>
+                    <div class="formule-divider"></div>
+                    <div class="formule-desc">
+                        <p>Constitution et optimisation du dossier sur la plateforme « Études en France », choix des formations et des établissements, rédaction des « projets motivés » (lettres de motivation exigées par Campus France pour chaque candidature), préparation intensive à l'entretien Campus France : simulation d'entretien, questions types, posture, argumentation.</p>
+                        <p class="formule-highlight">Je vous prépare aux questions précises que posent les agents, et je relis chaque pièce de votre dossier comme le ferait un jury.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary btn-full">Prendre rendez-vous</a>
+                </article>
+
+                <!-- Parcoursup -->
+                <article class="formule-card">
+                    <h3 class="formule-name">Accompagnement Parcoursup</h3>
+                    <p class="formule-tagline">Pour candidater via la procédure Parcoursup.</p>
+                    <div class="formule-price">150 €</div>
+                    <div class="formule-price-fcfa">100 000 FCFA</div>
+                    <div class="formule-divider"></div>
+                    <div class="formule-desc">
+                        <p>Sélection des vœux et analyse des taux d'acceptation par formation. Rédaction guidée, pas à pas, des « projets de formation motivés » attendus par Parcoursup pour chaque vœu : structure, arguments différenciants, contenu adapté à chaque formation. Suivi tout au long de la procédure.</p>
+                        <p class="formule-highlight">Je lis comme un jury, et je vous aide à écrire pour le convaincre.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary btn-full">Prendre rendez-vous</a>
+                </article>
+            </div>
+
+            <p class="formules-note">
+                Le montant du bilan d'orientation est déduit du tarif si vous décidez de poursuivre avec une formule d'accompagnement.
+            </p>
+        </div>
+    </section>
+
+    <!-- Comment se déroule l'accompagnement -->
+    <section class="methode">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Déroulement</span>
+                <h2 class="section-title">Comment se déroule l'accompagnement ?</h2>
+            </div>
+
+            <div class="methode-intro">
+                <p>
+                    Tout commence par un premier échange, gratuit et sans engagement, par visioconférence ou par
+                    téléphone. C'est l'occasion de comprendre votre situation, de répondre à vos questions, et de
+                    vous indiquer la formule la mieux adaptée.
+                </p>
+                <p>
+                    Si vous souhaitez aller plus loin, je vous transmets une proposition écrite : périmètre exact de
+                    l'accompagnement, calendrier, tarif. Vous décidez ensuite, en toute liberté, de poursuivre ou non.
+                </p>
+            </div>
+
+            <div class="methode-list">
+                <div class="methode-item">
+                    <h4>Travail à distance</h4>
+                    <p>Par visioconférence, téléphone, courriel et messagerie. Je vais m'adapter à votre fuseau horaire.</p>
+                </div>
+                <div class="methode-item">
+                    <h4>Allers-retours réguliers</h4>
+                    <p>Sur chaque document. Un dossier solide ne se construit pas en une seule passe.</p>
+                </div>
+                <div class="methode-item">
+                    <h4>Échanges directs</h4>
+                    <p>Sans intermédiaire. Vous traitez directement avec moi à chaque étape.</p>
+                </div>
+                <div class="methode-item">
+                    <h4>Confidentialité absolue</h4>
+                    <p>Sur l'ensemble des informations partagées.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Questions fréquentes</h2>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Quand faut-il commencer l'accompagnement ?<span class="faq-icon"></span></summary>
+                    <div class="faq-answer">
+                        <p>Le plus tôt possible, afin de préparer sereinement les choix de formation et la rédaction des projets motivés. La plateforme Études en France ouvre chaque année au 1ᵉʳ octobre. La plateforme Parcoursup ouvre mi-janvier. Un premier échange permet de fixer le calendrier précis selon votre situation.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Comment se passe le paiement depuis l'Afrique ?<span class="faq-icon"></span></summary>
+                    <div class="faq-answer">
+                        <p>Le paiement peut se faire par virement bancaire international, ou par d'autres moyens adaptés à votre pays de résidence. Les modalités précises sont indiquées dans la proposition écrite que je vous transmets avant tout engagement. Un acompte est demandé au démarrage, le solde à mi-parcours.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Combien de candidatures puis-je préparer dans le cadre d'un accompagnement ?<span class="faq-icon"></span></summary>
+                    <div class="faq-answer">
+                        <p>Pour Parcoursup, l'accompagnement couvre l'ensemble des vœux que votre enfant souhaite formuler (jusqu'à 10 vœux principaux). Pour Campus France, il couvre l'ensemble des candidatures déposées via la plateforme pour une année donnée.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Garantissez-vous l'admission de mon enfant ?<span class="faq-icon"></span></summary>
+                    <div class="faq-answer">
+                        <p>Non. Aucune personne sérieuse ne peut garantir une admission, qui dépend de la décision des jurys et des établissements. Ce que je garantis, c'est un accompagnement rigoureux, un dossier solide et une préparation à la hauteur des exigences. Ma conviction reste que, dans la grande majorité des cas, un bon accompagnement fait une réelle différence.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Et si la candidature de mon enfant est finalement refusée ?<span class="faq-icon"></span></summary>
+                    <div class="faq-answer">
+                        <p>Cela peut arriver, même avec un excellent dossier. Si un refus survient, nous analysons ensemble les raisons possibles, et nous préparons la candidature suivante : autre formation, autre établissement, autre année. Un refus n'est pas une fin de parcours.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Comment savoir si mon enfant a un profil suffisamment solide pour candidater ?<span class="faq-icon"></span></summary>
+                    <div class="faq-answer">
+                        <p>Il est rare qu'un dossier soit « insuffisant » dans l'absolu. Ce qui compte, c'est la cohérence entre le profil, les formations visées et la manière dont le projet est présenté. Lors du premier échange, je vous donne une lecture honnête du potentiel de votre enfant, et je vous indique clairement les formations réalistes.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Que se passe-t-il si je vous contacte ?<span class="faq-icon"></span></summary>
+                    <div class="faq-answer">
+                        <p>Vous recevez une réponse personnelle de ma part, dans les meilleurs délais. Nous convenons d'un premier échange par visioconférence ou par téléphone, gratuit et sans engagement. À l'issue de cet échange, vous savez précisément ce que je peux vous apporter et combien cela coûte. Vous décidez ensuite, en toute liberté.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Contact</span>
+                    <h2 class="section-title">Prendre contact</h2>
+                    <p>
+                        Le premier échange est gratuit et sans engagement. C'est l'occasion de me présenter votre
+                        situation, de poser vos questions, et de voir ensemble si mon accompagnement correspond à
+                        votre besoin.
+                    </p>
+                    <p>
+                        Pour entrer en contact, remplissez le formulaire ci-contre. Je vous répondrai personnellement
+                        dans les meilleurs délais, en tenant compte de votre fuseau horaire pour fixer un rendez-vous.
+                    </p>
+
+                    <div class="contact-points">
+                        <div class="contact-point">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Premier échange gratuit et sans engagement</span>
+                        </div>
+                        <div class="contact-point">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Une réponse personnelle, jamais un intermédiaire</span>
+                        </div>
+                        <div class="contact-point">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Confidentialité absolue sur vos informations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xojodoep" method="POST">
+                    <div class="form-status" id="form-status"></div>
+
+                    <div class="form-group">
+                        <label for="nom">Nom et prénom *</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Courriel *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pays">Pays de résidence *</label>
+                        <input type="text" id="pays" name="pays" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="niveau">Niveau d'études actuel de votre enfant <span class="optional">(facultatif)</span></label>
+                        <select id="niveau" name="niveau">
+                            <option value="">Sélectionnez…</option>
+                            <option value="Seconde">Seconde</option>
+                            <option value="Première">Première</option>
+                            <option value="Terminale">Terminale</option>
+                            <option value="Baccalauréat obtenu">Baccalauréat obtenu</option>
+                            <option value="Études supérieures en cours">Études supérieures en cours</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="etablissement">Établissement fréquenté <span class="optional">(facultatif)</span></label>
+                        <input type="text" id="etablissement" name="etablissement">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="procedure">Procédure envisagée <span class="optional">(facultatif)</span></label>
+                        <select id="procedure" name="procedure">
+                            <option value="">Sélectionnez…</option>
+                            <option value="Parcoursup">Parcoursup</option>
+                            <option value="Campus France">Campus France</option>
+                            <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Votre message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <!-- Honeypot anti-spam : ne pas remplir -->
+                    <div class="form-hp" aria-hidden="true">
+                        <label for="_gotcha">Ne remplissez pas ce champ</label>
+                        <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- Sujet de l'e-mail reçu -->
+                    <input type="hidden" name="_subject" value="Nouvelle demande via miambi.fr">
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Envoyer le message
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-initials">EM</span>
+                    <p>Edouard Miambi<br>Accompagnement aux études supérieures en France</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#accueil">Accueil</a>
+                    <a href="#apropos">Qui suis-je</a>
+                    <a href="#accompagnement">Accompagnement</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Edouard Miambi. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Année dynamique dans le pied de page
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Navbar : fond au défilement
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+
+    // Menu mobile
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    // Fermer le menu après un clic sur un lien
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Formulaire de contact via Formspree (envoi sans quitter la page)
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.className = 'form-status';
+        status.textContent = '';
+
+        // Sécurité : si l'identifiant Formspree n'a pas été renseigné
+        if (form.action.includes('VOTRE_ID_FORMSPREE')) {
+            status.className = 'form-status error';
+            status.textContent = "Le formulaire n'est pas encore configuré (identifiant Formspree manquant).";
+            return;
+        }
+
+        const data = new FormData(form);
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.reset();
+                status.className = 'form-status success';
+                status.textContent = "Merci, votre message a bien été envoyé. Je vous répondrai personnellement dans les meilleurs délais.";
+                status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                const result = await response.json().catch(() => ({}));
+                status.className = 'form-status error';
+                if (result && result.errors && result.errors.length) {
+                    status.textContent = result.errors.map(err => err.message).join(' ');
+                } else {
+                    status.textContent = "Une erreur est survenue. Vous pouvez réessayer dans quelques instants.";
+                }
+            }
+        } catch (err) {
+            status.className = 'form-status error';
+            status.textContent = "Impossible d'envoyer le message pour le moment. Vérifiez votre connexion et réessayez.";
+        }
+    });
+    </script>
 </body>
 </html>
